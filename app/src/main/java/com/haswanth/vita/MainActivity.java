@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() == null) {
-            startActivity(new Intent(this, com.haswanth.vita.login.class));
+            startActivity(new Intent(this, loginsignup.class));
             finish();
         }else{
             getusernam(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid(),welcomeuser);
