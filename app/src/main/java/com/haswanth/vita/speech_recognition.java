@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,8 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import java.util.ArrayList;
+import java.util.Map;
 
 public class speech_recognition extends AppCompatActivity {
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 1;
@@ -51,14 +52,14 @@ public class speech_recognition extends AppCompatActivity {
                     String recognizedText = matches.get(0);
                     recognizedTextView.setText("You: " + recognizedText);
 
-                    // Get AI response and send to Eleven Labs
-                    AIResponseHandler.fetchAIResponse(recognizedText, new AIResponseHandler.AIResponseCallback() {
+                    // **Fetch latest inventory and send with AI request**
+                    Inventory.fetchAndSendInventory(new AIResponseHandler.AIResponseCallback() {
                         @Override
                         public void onSuccess(String aiResponse) {
-                            runOnUiThread(() -> recognizedTextView.append("\nAI: " + aiResponse));
-
-                            // Send AI response to Eleven Labs for speech synthesis
-                            ElevenLabsTextToSpeech.speak(aiResponse, speech_recognition.this);
+                            runOnUiThread(() -> {
+                                recognizedTextView.append("\nAI: " + aiResponse);
+                                ElevenLabsTextToSpeech.speak(aiResponse, speech_recognition.this);
+                            });
                         }
 
                         @Override
@@ -84,6 +85,7 @@ public class speech_recognition extends AppCompatActivity {
                     case SpeechRecognizer.ERROR_SPEECH_TIMEOUT: message = "No speech input"; break;
                     default: message = "Unknown error"; break;
                 }
+                Log.e("SpeechRecognition", "Error: " + message);
                 Toast.makeText(speech_recognition.this, "Error: " + message, Toast.LENGTH_SHORT).show();
             }
 

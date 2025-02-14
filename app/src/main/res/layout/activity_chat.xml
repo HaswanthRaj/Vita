@@ -47,17 +47,19 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <EditText
-            android:layout_marginStart="16dp"
             android:id="@+id/edit_gchat_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
             android:layout_toStartOf="@+id/button_gchat_send"
             android:background="@android:color/transparent"
             android:hint="Enter Message"
             android:inputType="text"
             android:maxLines="6"
+            android:textStyle="bold"
             tools:ignore="Autofill" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -68,11 +70,11 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="12dp"
             android:layout_toStartOf="@+id/button_speech_recognition"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/black"
             android:src="@drawable/ic_send"
             android:tint="@android:color/white"
             app:elevation="6dp"
-            app:rippleColor="@color/colorAccent" />
+            app:rippleColor="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_speech_recognition"
@@ -82,10 +84,10 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="16dp"
             android:src="@drawable/icon_voice"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/black"
             android:tint="@android:color/white"
             app:elevation="6dp"
-            app:rippleColor="@color/colorPrimary" />
+            app:rippleColor="@color/white" />
 
 
 

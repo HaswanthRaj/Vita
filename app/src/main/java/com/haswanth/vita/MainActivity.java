@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.chat) {
                 startActivity(new Intent(MainActivity.this, chat.class));
             }
+            if(item.getItemId() == R.id.inventory){
+                startActivity(new Intent(MainActivity.this, Inventory.class));
+            }
             return true;
 
         });
