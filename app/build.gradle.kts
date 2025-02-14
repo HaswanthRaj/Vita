@@ -49,4 +49,8 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("androidx.media3:media3-exoplayer:1.2.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.5.1")
+    implementation( "androidx.media3:media3-ui:1.5.1")
 }

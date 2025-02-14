@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lbannerdescription"
-        android:text="Land of Stories"
+        android:text="Your Personal Assistant"
         android:textAlignment="center"
         android:layout_below="@+id/lbanner"
         android:textSize="15dp"
@@ -58,7 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/lpassword"
         android:layout_centerHorizontal="true"
-        android:text="login"
+        android:backgroundTint="@color/black"
+        android:padding="8dp"
+        android:text="LOGIN"
         android:textStyle="bold" />
 
     <TextView

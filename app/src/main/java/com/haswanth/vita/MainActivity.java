@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.home) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
                 finish();
+            }
+            if (item.getItemId() == R.id.profile) {
+                startActivity(new Intent(MainActivity.this, profilea.class));
+            }
+            if (item.getItemId() == R.id.chat) {
+                startActivity(new Intent(MainActivity.this, chat.class));
             }
             return true;
 
