@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class speech_recognition extends AppCompatActivity {
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 1;
@@ -52,8 +51,8 @@ public class speech_recognition extends AppCompatActivity {
                     String recognizedText = matches.get(0);
                     recognizedTextView.setText("You: " + recognizedText);
 
-                    // **Fetch latest inventory and send with AI request**
-                    Inventory.fetchAndSendInventory(new AIResponseHandler.AIResponseCallback() {
+                    // Send recognized text to AI
+                    AIResponseHandler.fetchAIResponse(recognizedText, new AIResponseHandler.AIResponseCallback() {
                         @Override
                         public void onSuccess(String aiResponse) {
                             runOnUiThread(() -> {
